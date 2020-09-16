@@ -11,12 +11,12 @@
   color: red;
 }
 
-body>p[tabindex="-1"]:hover{
-  color: red;
-}
-
 body>p[tabindex="-1"]:focus{
   color: blue;
+}
+
+body>p[tabindex="-1"]:hover{
+  color: red;
 }
 
 body>p[tabindex="-1"]:active{
@@ -70,6 +70,22 @@ div.b>ul>li:nth-last-child(-n+35){
 
 div.b>ul>li:nth-child(n+35):nth-child(-n+50){
   color: blue;
+}
+
+
+.prime>ul>li{
+  color: blue;
+}
+
+.prime>ul>li:first-child{
+  color: green;
+}
+
+.prime>ul>li:nth-child(2n+4),
+.prime>ul>li:nth-child(3n+9),
+.prime>ul>li:nth-child(5n+25),
+.prime>ul>li:nth-child(7n+49){
+  color: pink;
 }
 
 
