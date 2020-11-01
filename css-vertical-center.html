@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>多行文本垂直居中</title>
+    <style>
+
+        div {
+            width: 500px;
+            height: 500px;
+            background-color: royalblue;
+        }
+
+        span {
+            width: 300px;
+            font-size: 20px;
+            background-color: yellow;
+        }
+
+        div.d1 {
+            font-size: 0;
+            line-height: 500px;
+            text-align: center;
+        }
+
+        span.s1 {
+            display: inline-block;
+            line-height: normal;
+            vertical-align: middle;
+            text-align: left;
+
+        }
+
+        div.d2 {
+            position: relative;
+        }
+
+        span.s2 {
+            display: inline-block;
+            position: absolute;
+            height: 20%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            text-align: left;
+        }
+
+        div.d3 {
+            display: table-cell;
+            vertical-align: middle;
+
+        }
+
+        span.s3 {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>通过三种不同的方式实现多行文本垂直居中</h1>
+    <h2>行内块布局实现</h2>
+    <div class="d1"><span class="s1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+    <h2>绝对定位实现</h2>
+    <div class="d2"><span class="s2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+    <h2>表格布局实现</h2>
+    <div class="d3"><span class="s3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+</body>
+
+</html>

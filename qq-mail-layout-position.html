@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>qqmail-layout-position</title>
+</head>
+<style>
+    html,
+    body,
+    div {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    div {
+        position: relative;
+    }
+
+    header {
+        height: 100px;
+        background-color: wheat;
+    }
+
+    aside {
+        width: 100px;
+        height: calc(100% - 100px);
+        background-color: pink;
+    }
+
+    main {
+        width: calc(100% - 100px);
+        height: calc(100% - 100px);
+        background-color: royalblue;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+    }
+</style>
+
+<body>
+    <div>
+        <header>1</header>
+        <aside>2</aside>
+        <main>3</main>
+    </div>
+
+</body>
+
+</html>

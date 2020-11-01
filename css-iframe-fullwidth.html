@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>iframe灵活全宽</title>
+  <style>
+    div.a {
+      margin: 30px;
+    }
+
+    iframe.a {
+      display: block;
+      border: 5px solid;
+      padding: 30px;
+      width: calc(100% - 60px);
+    }
+
+    div.b {
+      margin: 30px;
+    }
+
+    iframe.b {
+      display: block;
+      box-sizing: border-box;
+      border: 5px solid;
+      padding: 30px;
+      width: 100%;
+    }
+
+    div.c {
+      border: 5px solid;
+      margin: 30px;
+      padding: 30px;
+    }
+
+    iframe.c {
+      display: block;
+      width: 100%;
+    }
+  </style>
+  <div class="a">
+    <iframe src="https://www.asd.com" frameborder="0" class="a"></iframe>
+  </div>
+  <div class="b">
+    <iframe src="https://www.asd.com" frameborder="0" class="b"></iframe>
+  </div>
+  <div class="c">
+    <iframe src="https://www.asd.com" frameborder="0" class="c"></iframe>
+  </div>
+</head>
+
+<body>
+</body>
+
+</html>

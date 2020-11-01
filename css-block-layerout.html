@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>css-block-layerout</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        margin-bottom: 35px;
+    }
+
+    div.topbar-wrapper {
+        background-color: black;
+    }
+
+    div.topbar {
+        width: 600px;
+        margin: auto;
+    }
+
+    div.page-wrapper {
+        width: 600px;
+        margin: auto;
+    }
+
+
+    header {
+        background-color: black;
+        width: 100%;
+    }
+
+    div.topbar {
+        color: white;
+        margin: auto;
+    }
+
+    div.block-series {
+        box-sizing: border-box;
+        width: 180px;
+        height: 40px;
+        border: 3px solid;
+        background-color: pink;
+        margin-bottom: 15px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+
+    div.block-series:nth-of-type(3n+2) {
+        margin-left: 210px;
+        margin-top: -55px;
+    }
+
+    div.block-series:nth-of-type(3n+3) {
+        margin-left: 420px;
+        margin-top: -55px;
+    }
+
+    div.link-series:not(:last-child) {
+        border-bottom: 1px dotted;
+    }
+
+    div.bottombar-wrapper {
+        margin-top: 50px;
+
+        background-color: #ee8aee;
+    }
+
+    div.bottombar {
+        width: 600px;
+        margin: auto;
+        text-align: center;
+    }
+
+    ul.cell-wrapper{
+        list-style-type: none;
+        padding: 0;
+        font-size: 0px;
+    }
+    
+    ul.cell-wrapper>li{
+        font-size: 16px;
+        text-align: center;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 180px;
+        height: 40px;
+        border: 3px solid;
+        line-height: 34px;
+        background-color: pink;
+        margin-bottom: 15px;
+    }
+    ul.cell-wrapper>li:nth-child(-n+3){
+        margin-top: 15px;
+    }
+
+    ul.cell-wrapper>li:nth-child(3n+2){
+        margin-left: 30px;
+        margin-right: 30px;;
+    }
+</style>
+
+<body>
+    <div class="topbar-wrapper">
+        <div class="topbar">hello world 请调整浏览器窗口大小查看效果</div>
+    </div>
+
+    <div class="page-wrapper">
+        <p>
+            页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+            宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+            宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体
+            宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px
+        </p>
+        <!-- 块元素布局 -->
+        <!-- 使用ul>li更好! -->
+        <div class="block-series-wrapper">
+            <div class="block-series">宽180高40(包含边框)</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">水平间隙30px</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">垂直间隙15px</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">边框宽度3px</div>
+            <div class="block-series">产品</div>
+            <div class="block-series">产品</div>
+        </div>
+
+        <!-- 行内元素布局 -->
+        <ul class="cell-wrapper">
+            <li>宽180高40(包含边框)</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>水平间隙30px</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>垂直间隙15px</li>
+            <li>产品</li>
+            <li>产品</li>
+            <li>边框宽度3px</li>
+            <li>产品</li>
+            <li>产品</li>
+        </ul>
+
+
+
+        <!-- 使用ul>li更好! -->
+        <div class="link-series-wrapper">
+            <div class="link-series">link</div>
+            <div class="link-series">link</div>
+            <div class="link-series">link</div>
+            <div class="link-series">link</div>
+            <div class="link-series">link</div>
+        </div>
+    </div>
+
+    <div class="bottombar-wrapper">
+        <div class="bottombar">
+            &copy;版权所有
+            <br> 本页所有布局均使用块元素
+        </div>
+
+    </div>
+</body>
+
+</html>

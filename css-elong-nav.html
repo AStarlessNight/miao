@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>艺龙导航条</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+    }
+
+    header {
+        width: 100%;
+        margin-top: 20px;
+        background-color: #2064c8;
+    }
+    .wrapper{
+        width: 1200px;
+        padding-left: 360px;
+        padding-right: 360px;
+        margin: auto;
+        background-color: #2064c8;
+    }
+    ul {
+        list-style: none;
+        padding: 0px;
+        font-size: 0;
+    }
+
+    li {
+        display: inline-block;
+        font-size: 14px;
+        color: white;
+        padding: 1em;
+        border-right: 1px solid #3774ce;
+        position: relative;
+    }
+
+    li:first-child {
+        border-left: 1px solid #3774ce;
+        background-color: #003679;
+    }
+
+
+    li[data-tip]::before {
+        content: attr(data-tip);
+        background-color: #ff8e00;
+        position: absolute;
+        bottom: 82%;
+        left: 50%;
+    }
+
+    li[data-tip]::after {
+        content: '';
+        border: 3px solid;
+        border-color: #ff8e00 transparent transparent #ff8e00;
+        position: absolute;
+        bottom: 70%;
+        left: 53%;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <ul>
+                <li>首页</li>
+                <li>国内酒店</li>
+                <li data-tip="低价促">海外酒店</li>
+                <li data-tip="新升级">国内·国际机票</li>
+                <li>火车票</li>
+                <li>汽车票</li>
+                <li>商旅</li>
+            </ul>
+        </div>
+
+    </header>
+
+</body>

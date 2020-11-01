@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>css-ios-switch</title>
+</head>
+<style>
+    * {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        display: none;
+    }
+
+    div.wrapper {
+        width: 800px;
+        height: 600px;
+        margin: auto;
+        background-color: white;
+        position: relative;
+    }
+    label[for="ios-switch"] {
+        display: inline-block;
+        width: 260px;
+        height: 150px;
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        border: 3px solid grey;
+        border-radius: 100px;
+        background-color: white;
+        transition: 0.5s;
+    }
+
+    div.circle {
+        width: 130px;
+        height: 130px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 5px;
+        margin: auto 0;
+        border: 1px solid white;
+        border-radius: 65px;
+        box-shadow: 0 0 20px grey;
+        background-color: #fff;
+        transition: 0.5s;
+    }
+
+    input[id="ios-switch"]:checked+label {
+        xbackground-color: #30f34d;
+        border-color: #30f34d;
+        box-shadow: 0 0 0 76px#30f34d inset;
+    }
+
+
+    input[id="ios-switch"]:checked+label>div.circle {
+        left: 122px;
+        
+    }
+</style>
+
+<body>
+    <div class="wrapper">
+        <input type="checkbox" id="ios-switch">
+        <label for="ios-switch">
+            <div class="circle"></div>
+        </label>
+        
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<style>
+    #preference-menu {
+        width: 350px;
+    }
+
+    #watch-menu {
+        width: 300px;
+    }
+
+    #style-menu {
+        width: 300px;
+    }
+
+    #file-menu {
+        width: 350px;
+    }
+
+    hr {
+        margin: 2px 15px;
+        border-color: #745d69;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    ul li:hover {
+        background-color: #d0963a;
+    }
+
+    #main-menu {
+        min-width: 800px;
+        font-size: 0;
+        background-color: #2d2f42;
+    }
+
+    #main-menu>li {
+        display: inline-block;
+        font-size: 20px;
+        color: #cccccc;
+        padding: 10px 8px;
+        position: relative;
+    }
+
+    ul.submenu {
+        display: none;
+        box-sizing: content-box;
+        position: absolute;
+        background-color: #202330;
+    }
+
+    ul.first-level-submenu {
+        left: 0;
+        top: 100%;
+    }
+
+
+    ul.submenu>li {
+        font-size: 18px;
+        padding: 8px 30px;
+        color: #ffffff;
+        position: relative;
+    }
+
+
+    #main-menu>li:hover>ul.first-level-submenu {
+        display: block;
+    }
+
+
+
+    li[short-cut]::after {
+        display: inline-block;
+        content: attr(short-cut);
+        position: absolute;
+        right: 30px;
+
+    }
+
+    li[expand-sign] {
+        position: relative;
+    }
+
+    li[expand-sign]::after {
+        display: inline-block;
+        content: attr(expand-sign);
+        position: absolute;
+        right: 15px;
+    }
+
+    ul.second-level-submenu {
+        left: 100%;
+        top: -1px;
+    }
+
+    li[expand-sign]:hover>ul.second-level-submenu {
+        display: block;
+    }
+
+    ul.submenu {
+        border: 1px solid black;
+        box-shadow: 0 0 5px black;
+    }
+
+
+    li[check-sign]::before {
+        display: inline-block;
+        content: attr(check-sign);
+        position: absolute;
+        left: 7px;
+    }
+</style>
+
+<body>
+    <header>
+        <ul id="main-menu">
+            <li>文件(F)
+                <ul class="submenu first-level-submenu" id="file-menu">
+                    <li short-cut="Ctrl+N">新建文件</li>
+                    <li short-cut="Ctrl+Shift+N">新建窗口</li>
+                    <hr>
+                    <li short-cut="Ctrl+O">打开文件</li>
+                    <li short-cut="Ctrl+K Ctrl+O">打开文件夹</li>
+                    <li>打开工作区...</li>
+                    <li expand-sign=">">打开最近的文件</li>
+                    <hr>
+                    <li>将文件夹添加到工作区...</li>
+                    <li>将工作区另存为...</li>
+                    <hr>
+                    <li short-cut="Ctrl+S">保存</li>
+                    <li short-cut="Ctrl+Shift+S">另存为</li>
+                    <li check-sign="√" short-cut="Ctrl+K S">全部保存</li>
+                    <hr>
+                    <li expand-sign=">">首选项
+                        <ul class="submenu second-level-submenu" id="preference-menu">
+                            <li short-cut="Ctrl+,">设置</li>
+                            <li>联机服务设置</li>
+                            <li short-cut="Ctrl+Shift+X">扩展</li>
+                            <hr>
+                            <li short-cut="Ctrl+K Ctrl+S">键盘快捷方式</li>
+                            <li short-cut="Ctrl+K Ctrl+M">键映射</li>
+                            <hr>
+                            <li>用户片段</li>
+                            <hr>
+                            <li short-cut="Ctrl+K Ctrl+T">颜色主题</li>
+                            <li>文件图标主题</li>
+                            <hr>
+                            <li>打开设置同步</li>
+                        </ul>
+                    </li>
+                    <li>还原文件</li>
+                    <li short-cut="Ctrl+F4">关闭编辑器</li>
+                    <li short-cut="Ctrl+K F">关闭文件夹</li>
+                    <li short-cut="Ctrl+W">关闭窗口</li>
+                    <li>退出</li>
+                </ul>
+            </li>
+            <li>编辑(E)</li>
+            <li>选择(S)</li>
+            <li>查看(E)
+                <ul class="submenu first-level-submenu" id="watch-menu">
+                    <li expand-sign=">">外观
+                        <ul class="submenu second-level-submenu" id="style-menu">
+                            <li short-cut="F11">全屏</li>
+                            <li short-cut="Ctrl+K Z">禅模式</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </li>
+            <li>转到(G)</li>
+            <li>运行(R)</li>
+            <li>终端(T)</li>
+            <li>帮助(H)</li>
+
+        </ul>
+    </header>
+
+</body>
+
+</html>

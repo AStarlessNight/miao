@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>bootstrap-table</title>
+    <style>
+        body {
+            background-color: #fff;
+        }
+
+        .table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .table-sm th,
+        .table-sm td {
+            padding: 6px;
+        }
+
+        .table-dark {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        .table-dark thead,
+        .table-dark tr {
+            border-color: #454d55;
+        }
+
+        .table-striped tbody tr:nth-child(2n+1) {
+            background-color: #f2f2f2;
+        }
+
+        .table-dark.table-striped tbody tr:nth-child(2n+1) {
+            background-color: #3e444a;
+        }
+
+        .table-borderless * {
+            border: none;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+
+        .table-bordered.table thead {
+            border-color: #dee2e6;
+        }
+
+        .table-bordered.table-dark th,
+        .table-bordered.table-dark td {
+            border-color: #454d55;
+        }
+
+        .table-bordered.table-dark thead {
+            border-color: #454d55;
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: #ececec;
+        }
+
+        .table-hover.table-dark tbody tr:hover {
+            background-color: #43494e;
+        }
+
+
+
+        thead {
+            border-top: 1px solid #dee2e6;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        thead.thead-dark {
+            border-color: #454d55;
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        thead.thead-light {
+            border-color: #dee2e6;
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        tbody tr {
+            border-top: 1px solid #dee2e6;
+        }
+
+        th,
+        td {
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table table-bordered table-dark table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>qqmail-layout</title>
+    <style>
+        html,
+        body,
+        div.wrapper {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        div.wrapper {
+            font-size: 0;
+        }
+
+        header {
+            font-size: 30px;
+            height: 100px;
+            background-color: wheat;
+        }
+
+        aside {
+            font-size: 30px;
+            display: inline-block;
+            width: 100px;
+            height: calc(100% - 100px);
+            background-color: pink;
+            vertical-align: top;
+        }
+
+
+        main {
+            font-size: 30px;
+            display: inline-block;
+            height: calc(100% - 100px);
+            width: calc(100% - 100px);
+            background-color: royalblue;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>1</header>
+        <aside>2</aside>
+        <main>3</main>
+    </div>
+</body>
+
+</html>
