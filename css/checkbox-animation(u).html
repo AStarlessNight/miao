@@ -26,7 +26,7 @@
         }
 
         input {
-            xdisplay: none;
+            display: none;
         }
 
 
@@ -34,11 +34,37 @@
             display: inline-block;
             width: 40px;
             height: 40px;
-            border: 4px solid black;
-            border-radius: 24px;
+            border: 5px solid black;
+            border-radius: 100px;
             vertical-align: middle;
             margin-right: 22px;
-            position: relative
+            position: relative;
+            transition: 0.3s;
+        }
+
+        label::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-radius: 100px;
+            background-color: #04c262;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            transition: 0.3s;
+        }
+
+        input:checked+label {
+            border-color: #04c262;
+        }
+
+        input:checked+label::before {
+            width: 25px;
+            height: 25px;
+
         }
     </style>
 </head>
@@ -46,18 +72,18 @@
 <body>
     <ul>
         <li>
-            <input type="checkbox" id="cb1"></input>
+            <input type="radio" name="type" id="cb1"></input>
             <label for="cb1"></label>
             <span>Radio Button</span>
         </li>
 
         <li>
-            <input type="checkbox" id="cb2"></input>
+            <input type="radio" name="type" id="cb2"></input>
             <label for="cb2"></label>
             <span>Radio Button</span>
         </li>
         <li>
-            <input type="checkbox" id="cb3"></input>
+            <input type="radio" name="type" id="cb3"></input>
             <label for="cb3"></label>
             <span>Radio Button</span>
         </li>
