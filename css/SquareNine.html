@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+</head>
+<style>
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+
+    ul.wrapper {
+        width: 150px;
+        list-style: none;
+        padding: 0;
+        height: 150px;
+    }
+
+
+    li.cell {
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        border: 5px solid red;
+        margin: 0px -5px -5px 0;
+        float: left;
+        position: relative;
+        text-align: center;
+        line-height: 40px;
+        color: green;
+    }
+
+
+    /*直接更改margin值即可*/
+    /*
+li.cell:nth-child(3n+2){
+  left:-5px;
+}
+
+li.cell:nth-child(3n+3){
+  left:-10px;
+}
+
+li.cell:nth-child(n+4){
+  top:-5px;
+}
+
+li.cell:nth-child(n+7){
+  top:-10px;
+}
+*/
+
+    li.cell:hover {
+        border-color: blue;
+        z-index: 999;
+    }
+
+
+    table {
+        border-collapse: collapse;
+        text-align: center;
+        color: green;
+
+    }
+
+    tr {
+        border: 5px solid red;
+    }
+
+    col {
+        border: 5px solid red;
+    }
+
+    td {
+        padding: 0;
+        xbox-sizing: border-box; /*更改这个值是有效的*/
+        width: 40px;
+        height: 40px;
+    }
+
+
+    td:hover {
+        border: 5px solid blue;
+        z-index: 999;
+    }
+</style>
+
+<body>
+    <h3>浮动实现</h3>
+    <ul class="wrapper clearfix">
+        <li class="cell">1</div>
+        <li class="cell">2</div>
+        <li class="cell">3</div>
+        <li class="cell">4</div>
+        <li class="cell">5</div>
+        <li class="cell">6</div>
+        <li class="cell">7</div>
+        <li class="cell">8</div>
+        <li class="cell">9</div>
+    </ul>
+    <h3>表格实现</h3>
+
+    <table>
+        <colgroup>
+            <col span="3">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

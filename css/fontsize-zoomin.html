@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by AStarlessNight (http://jsbin.com/hequwil/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fontsize-zoomin</title>
+  <style id="jsbin-css">
+    * {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .wrapper {
+      width: 300px;
+      height: 100px;
+    }
+
+    section {
+      box-sizing: border-box;
+      transition: 1s;
+    }
+
+    .m1 {
+      line-height: 180px;
+    }
+
+    .m1:hover {
+      font-size: 50px;
+      line-height: 142px;
+    }
+
+    .m2 {
+      display: table-cell;
+      vertical-align: bottom;
+    }
+
+    .m2:hover {
+      font-size: 50px;
+    }
+
+    .m3 {
+      padding-top: 80px;
+    }
+
+    .m3:hover {
+      font-size: 50px;
+      padding-top: 39px;
+    }
+
+    div {
+      position: relative;
+    }
+
+    span {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      transition: 1s;
+    }
+
+
+    div:hover {
+      font-size: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>修改line-heigh实现</h3>
+  <section class="wrapper m1">订阅博客</section>
+
+  <h3>使用表单元格实现</h3>
+  <section class="wrapper m2">订阅博客</section>
+
+  <h3>修改padding-top实现（不推荐，会产生抖动）</h3>
+  <section class="wrapper m3">订阅博客</section>
+
+  <h3>两种元素div+span实现</h3>
+  <div class="wrapper"><span>订阅博客</span></div>
+
+</body>
+
+</html>
