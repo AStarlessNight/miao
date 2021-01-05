@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width">
     <title>多行文本垂直居中</title>
     <style>
-
         div {
             width: 500px;
             height: 500px;
@@ -22,9 +21,13 @@
         div.d1 {
             line-height: 500px;
             text-align: center;
+            font-size: 0;
         }
 
         span.s1 {
+            xwidth: 800px;
+            xheight: 800px;
+            font-size: 20px;
             display: inline-block;
             line-height: normal;
             vertical-align: middle;
@@ -33,10 +36,14 @@
 
         div.d2 {
             position: relative;
+            xmargin-left: 800px;
         }
 
         span.s2 {
-            display: inline-block;
+            xwidth: 800px;
+            xheight: 800px;
+            xopacity: 0.2;
+
             position: absolute;
             height: 20%;
             left: 0;
@@ -57,17 +64,56 @@
             display: block;
             margin: auto;
         }
+
+
+        div.d4 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 另一种方式 */
+            xflex-flow: wrap;
+            xalign-content: center;
+            xmargin-left: 800px;
+        }
+
+        span.s4 {
+            xwidth: 800px;
+            xheight: 800px;
+            xbackground-color: rgba(255, 255, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        div.d5 {
+            position: relative;
+            xmargin-left: 800px;
+        }
+
+        span.s5 {
+            xwidth: 800px;
+            xheight: 800px;
+            xopacity: 0.2;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+        }
     </style>
 </head>
 
 <body>
-    <h1>通过三种不同的方式实现多行文本垂直居中</h1>
+    <h1>通过五种不同的方式实现多行文本垂直居中</h1>
     <h2>行内块布局实现</h2>
     <div class="d1">xxx<span class="s1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
     <h2>绝对定位实现</h2>
     <div class="d2"><span class="s2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
     <h2>表格布局实现</h2>
     <div class="d3"><span class="s3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+    <h2>flex布局实现</h2>
+    <div class="d4"><span class="s4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+    <h2>transform实现</h2>
+    <div class="d5"> <span class="s5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></div>
+
 </body>
 
 </html>

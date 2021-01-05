@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style type="text/less">
+        /* *{
+  background-color: rgba(0, 0, 0, 0.1);
+} */
+
+
+body{
+  margin:0;
+
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@deg-span: 30deg;
+
+
+/* @keyframes foo{
+
+  99%{
+    transform: rotate(360deg+@current-second-deg);
+  }
+  
+  99.5%{
+    transform: rotate(360deg+@current-second-deg);
+  }
+  
+  to{
+    transform: rotate(360deg+@current-second-deg);
+  }
+  
+} */
+
+@keyframes foo-current{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes foo-forward{
+    from{
+        transform:rotate(0deg);
+    }
+
+    20%,to{
+        transform: rotate(6deg);
+    }
+}
+
+ 
+
+
+
+
+
+
+
+div.clock-container{
+  box-sizing: border-box;
+  width: 450px;
+  height: 450px;
+  padding: 36px;
+  margin: 15% auto 0;
+  background-color: pink;
+  > div.clock-pannel{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 9999px;
+    position: relative;
+    ul.scale-list{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      xposition: relative;
+      li{
+        width: 100px;
+        height: 100px;
+        xline-height: 100px;
+        text-align: center;
+        font-size: 40px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        xbottom: 0;
+        right: 0;
+        margin: 0 auto;
+        xmargin-top: -6px;
+        transform-origin: 50% 189px;
+        span{
+          display: inline-block;
+          position: relative;
+          xtop: 10px;
+        }
+        &:nth-child(1){
+          transform: rotate(@deg-span * 1);
+          span{
+            
+            transform: rotate(-@deg-span * 1);
+          }
+        }
+        &:nth-child(2){
+          transform: rotate(@deg-span * 2);
+          span{
+            
+            transform: rotate(-@deg-span*2);
+          }
+        }
+        &:nth-child(3){
+          transform: rotate(@deg-span*3);
+          span{
+            
+            transform: rotate(-@deg-span*3);
+          }
+        }
+        &:nth-child(4){
+          transform: rotate(@deg-span*4);
+          span{
+            
+            transform: rotate(-@deg-span*4);
+          }
+        }
+        &:nth-child(5){
+          transform: rotate(@deg-span*5);
+          span{
+            
+            transform: rotate(-@deg-span*5);
+          }
+        }
+        &:nth-child(6){
+          transform: rotate(@deg-span*6);
+          span{
+            
+            transform: rotate(-@deg-span*6);
+          }
+        }
+        &:nth-child(7){
+          transform: rotate(@deg-span*7);
+          span{
+            
+            transform: rotate(-@deg-span*7);
+          }
+        }
+        &:nth-child(8){
+          transform: rotate(@deg-span*8);
+          span{
+            
+            transform: rotate(-@deg-span*8);
+          }
+        }
+        &:nth-child(9){
+          transform: rotate(@deg-span*9);
+          span{
+            
+            transform: rotate(-@deg-span*9);
+          }
+        }
+        &:nth-child(10){
+          transform: rotate(@deg-span*10);
+          span{
+            
+            transform: rotate(-@deg-span*10);
+          }
+        }
+        &:nth-child(11){
+          transform: rotate(@deg-span*11);
+          span{
+            
+            transform: rotate(-@deg-span*11);
+          }
+        }
+        &:nth-child(12){
+          transform: rotate(@deg-span*12);
+          span{
+            
+            transform: rotate(-@deg-span*12);
+          }
+        }
+      }
+    }
+    
+    ul.pointer-list{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      li{
+        xwidth: 10px;
+        xheight: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        
+        &:nth-child(1){
+          width: 8px;
+          margin-top: 25%;
+          height: 25%;
+          background-color: red;
+          transform-origin: bottom;
+          transform: rotate(144deg);
+        }
+        &:nth-child(2){
+          width: 6px;
+          margin-top: 11%;
+          height: 39%;
+          background-color: green;
+          transform-origin: bottom;
+          transform: rotate(288deg);
+        }
+        &:nth-child(3){
+          width: 3px;
+          margin-top: 13%;
+          height: 44%;
+          xbackground-color: blue;
+          transform-origin: center 84%;
+          xtransform: rotate(28deg);
+          /* animation: foo-current 60s steps(60,end) infinite,foo-forward 60s steps(60,end) infinite -0.2s; */
+          animation: foo-current 60s steps(60,start) infinite;
+
+          &::after{
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+            transform-origin: center 84%;
+            animation: foo-forward  infinite  1s cubic-bezier(.4,2.08,.55,.44);
+          }
+
+
+        }
+      }
+    }
+    
+    div.pin{
+      width: 13px;
+      height: 13px;
+      background-color: black;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      border-radius: 9999px;
+    }
+  }
+}
+
+
+  </style>
+    <script src="http://cdn.jsdelivr.net/npm/less"></script>
+
+</head>
+
+<body>
+    <div class="clock-container">
+        <div class="clock-pannel">
+            <ul class="scale-list">
+                <li><span>1</span></li>
+                <li><span>2</span></li>
+                <li><span>3</span></li>
+                <li><span>4</span></li>
+                <li><span>5</span></li>
+                <li><span>6</span></li>
+                <li><span>7</span></li>
+                <li><span>8</span></li>
+                <li><span>9</span></li>
+                <li><span>10</span></li>
+                <li><span>11</span></li>
+                <li><span>12</span></li>
+            </ul>
+            <ul class="pointer-list">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="pin"></div>
+        </div>
+    </div>
+</body>
+
+</html>

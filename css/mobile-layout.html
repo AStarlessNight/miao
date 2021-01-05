@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width"> -->
+    <title>JS Bin</title>
+</head>
+<!-- <link rel="stylesheet/less" type="text/css" href="styles.less" /> -->
+<style type="text/less">
+    *{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+  html,body{
+    margin: 0;
+  }
+  
+  html{
+    font-size: calc(10000vw / 720);
+  }
+
+
+header{
+  font-size: 0;;
+  height: 1rem;
+}
+
+div.top-banner{
+
+    img{
+        width: 7.2rem;
+    height: 1rem;
+    }
+}
+
+div.top-search-bar{
+  height: 0.84rem;
+  line-height: 0.84rem;
+  background-color: #f2f2f2;
+    > a{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+
+      background-color: black;
+            img{
+        width: 0.48rem;
+        height: 0.32rem;
+      }
+      
+      &:first-child{
+      margin-left: .15rem;
+      margin-right: .30rem;
+      }
+      
+            &:last-child{
+      margin-left: .30rem;
+      margin-right: .15rem;
+      }
+
+  }
+  
+  input{
+    height: 0.62rem;
+    width: 5.2rem;
+    border: none;
+    border-radius: .04rem;
+    vertical-align: middle;
+  }
+}
+
+
+div.top-nav-bar{
+  height: 0.567rem;
+  background-color: red;
+
+}
+
+
+</style>
+<script src="http://cdn.jsdelivr.net/npm/less"></script>
+
+
+
+
+<body>
+    <header>
+        <div class="top-banner">
+            <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/e1d048f5d1008fa344cc4cba529b4433.png" alt="">
+        </div>
+        <div class="top-search-bar">
+            <a href=""><img src="https://www.baidu.com/favicon.ico" alt="" class="xiaomi-icon"></a>
+            <input type="text" name="" id="">
+            <a href=""><img src="https://www.baidu.com/favicon.ico" alt="" class="user-icon"></a>
+        </div>
+        <div class="top-nav-bar"></div>
+    </header>
+
+
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/less">
+        *{
+        background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-container::after{
+        content: '';
+        display: block;
+        clear: both;
+        }
+
+        .swiper-container{
+        position: relative;
+        height: 300px;
+        width: 500px;
+        margin-top: 100px;
+        xbackground-color: yellow;
+        
+        /* 最关键部分的代码 单独hover住的话，状态无法保持，所以不能让div.swiper-container单独hover住*/
+        &:hover{
+            span.controller{
+            background-color: pink;
+            transition: none;
+            section.main{
+                visibility: hidden;
+                transition: none;
+            }
+            }
+        }
+        
+        span.controller{
+            float: right;
+            xbox-sizing: border-box;
+            width: 50px;
+            height: 50px;
+            line-height:50px;
+            margin-top: -49px;
+            xmargin-bottom: 1px;
+            background-color: pink;
+            text-align: center;
+            transition: 0s 999999s;
+            &:hover{
+            background-color: red;
+            transition: none;
+            section.main{
+                visibility: visible;
+                transition: none;
+            }
+            }
+            
+            section.main{
+            text-align: left;
+            font-size: 30px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            visibility: hidden;
+            transition: 0s 999999s;
+            }
+        }
+        }
+    </style>
+    <script src="http://cdn.jsdelivr.net/npm/less"></script>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <span class="controller"><span>5</span>
+            <section class="main">05</section>
+        </span>
+        <span class="controller"><span>4</span>
+            <section class="main">04</section>
+        </span>
+        <span class="controller"><span>3</span>
+            <section class="main">03</section>
+        </span>
+        <span class="controller"><span>2</span>
+            <section class="main">02</section>
+        </span>
+        <span class="controller"><span>1</span>
+            <section class="main">01</section>
+        </span>
+    </div>
+</body>
+
+</html>

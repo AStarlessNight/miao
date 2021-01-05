@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style type="text/less">
+* {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+    @cube-width: 400px;
+    @cube-height: 400px;
+    @cube-length: 400px;
+    @keyframes foo{
+        from{
+            transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            xtransform:rotateY(0deg) ;
+
+        }
+
+        to{
+            transform: rotateX(1turn) rotateY(-1turn) rotateZ(-1turn);
+            xtransform: rotateY(-1turn) ;
+
+        }
+
+
+    }
+   
+     body {
+      width: 100%;
+      margin: 0;
+     }
+  
+
+    ul {
+        xbackground-color: black;
+        padding: 0;
+        list-style: none;
+        width: @cube-width;
+        height: @cube-height;
+        position: relative;
+        margin: 15% auto 0;
+        
+        xmargin-top: 200px;
+        xmargin-left: 200px;
+        transform-style: preserve-3d;
+        perspective: 60600px;
+        animation-name: foo;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        xtransform:rotateX(30deg) rotateY(-30deg);
+        xtransform-origin: top;
+    }
+    li {
+        position: absolute;
+        width: @cube-width;
+        height: @cube-height;
+        text-align: center;
+        line-height: @cube-height;
+        font-size: 150px;
+        color: white;
+        opacity: 0.7;
+        xperspective: 2000px;
+    }
+    
+    
+    
+    li.front {
+        background-color: saddlebrown;
+        transform: translatez(@cube-length / 2);
+    }
+    li.back {
+        background-color: yellow;
+        transform: rotateY(-180deg) translatez(@cube-height / 2) ;
+    }
+    li.left {
+        background-color: green;
+        xtransform-origin: left;
+        transform: rotateY(-90deg) translatez(@cube-height / 2) ;
+    
+    }
+    li.right {
+        background-color: blue;
+        xtransform-origin: right;
+        transform: rotateY(90deg) translatez(@cube-height / 2) ;
+    
+    }
+    li.top {
+        background-color: teal;
+        xtransform-origin: top;
+        transform: rotateX(90deg) translatez(@cube-height / 2) ;
+    
+    }
+    li.bottom {
+        background-color: magenta;
+        xtransform-origin: bottom;
+        transform: rotateX(-90deg) translatez(@cube-height / 2) ;
+    }
+  </style>
+    <script src="http://cdn.jsdelivr.net/npm/less"></script>
+</head>
+
+<body>
+    <ul class="cube-container">
+        <li class="front">1</li>
+        <li class="back">6</li>
+        <li class="left">2</li>
+        <li class="right">5</li>
+        <li class="top">3</li>
+        <li class="bottom">4</li>
+    </ul>
+
+</body>
+
+</html>
+
+</html>

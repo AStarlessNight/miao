@@ -1,0 +1,121 @@
+<!-- 1.求一个范围内数的总和 -->
+<script type="xx">
+    var range = function (start, end, step) {
+        let stack = []
+
+        if (step == undefined) {
+            step = 1
+        }
+        if (step < 0) {
+            for (let i = start; i >= end; i += step) {
+                stack.push(i)
+            }
+        } else {
+            for (let i = start; i <= end; i += step) {
+                stack.push(i)
+            }
+        }
+        return stack
+    }
+
+    var sum = function (ary) {
+        let length = ary.length
+        let sum = 0
+        for (let i = 0; i < length; i++) {
+            sum += ary[i]
+        }
+        return sum
+    }
+
+    console.log(sum(range(1,10)))
+</script>
+
+
+
+
+<script type="xx">
+    function reverseArray(ary) {
+        let stack = []
+        let length = ary.length
+
+        for (let i = length - 1; i >= 0; i--) {
+            stack.push(ary[i])
+        }
+
+        return stack
+    }
+    console.log(reverseArray([]))
+
+    function reverseArrayInPlace(ary) {
+        let length = ary.length
+        let mid = Math.trunc((length - 1) / 2)
+        for (let i = 0; i < mid; i++) {
+            let tempt = ary[i]
+            ary[i] = ary[length - 1 - i]
+            ary[length - 1 -i] = tempt
+        }
+        return ary
+    }
+</script>
+
+
+
+
+
+
+
+<script>
+    function deepEqual(val1, val2) {
+        if (typeof(val1) == typeof(val2)) {
+            if (typeof(val1) != "object" || ((val1 == null && val2 == null))) {
+                if (val1 === val2) {
+                    return true
+                } else return false
+            } else {
+                if (Array.isArray(val1) && Array.isArray(val2)) {
+                    if (val1.length != val2.length) {
+                        return false
+                    }
+                    for (let i in val1) {
+                        if (deepEqual(val[i],val2[i]) == false){
+                            return false
+                        }
+                        return true
+                    }
+                    return true
+                } else if (Array.isArray(val1) || Array.isArray(val2)) {
+                    return false
+                } else {
+                    let stack = []
+                    for (let i in val1) {
+                        if (deepEqual(val1[i], val2[i]) == false) {
+                            return false
+                        }
+                        stack.push(i)
+                    }
+                    for (let i in val2) {
+                        if (stack.includes(i)) {
+                            continue
+                        }
+                        if (deepEqual(val1[i], val2[i]) == false) {
+                            return false
+                        }
+                    }
+                    return true
+                }
+            }
+        } else {
+            return false
+        }
+    }
+    var a = {
+        xxx: 123,
+        xx: 12,
+    }
+    var b = {
+        xxx: 123,
+        xx: 12,
+    }
+
+    console.log(deepEqual(a,b))
+</script>

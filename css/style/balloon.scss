@@ -1,0 +1,214 @@
+* {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+$button-width: 180px;
+$button-font-size: 15px;
+$ballon-font-size: 12px;
+
+@keyframes balloon-pos-up {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: -12px;
+        opacity: 1;
+    }
+
+}
+
+body {
+    padding: 100px;
+}
+
+button[aria-label] {
+
+    font-size: $button-font-size;
+    width: 180px;
+    background-color: #b71212;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    margin: 20px 0;
+
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        font-size: $ballon-font-size;
+        left: 50%;
+        top: 50%;
+        pointer-events: none;
+        opacity: 0;
+        z-index: 20;
+
+
+    }
+
+    &::before {
+        box-sizing: border-box;
+        width: 12px;
+        height: 12px;
+        border-top: 6px solid black;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+    }
+
+    &::after {
+        content: attr(aria-label);
+        padding: 6px 12px;
+        background-color: green;
+        white-space: nowrap;
+    }
+
+
+    &[data-balloon-pos="up"] {
+
+        &::before,
+        &::after {
+            top: 0;
+            transition: 0.3s 0.1s;
+        }
+
+        &::before {
+            transform: translateX(-50%) translateY(-50%);
+        }
+
+        &::after {
+            transform: translateX(-50%) translateY(calc(-100% - 6px));
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                top: -6px;
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-balloon-pos="down"] {
+
+        &::before,
+        &::after {
+            top: auto;
+            bottom: 0;
+            transition: 0.3s 0.1s;
+
+        }
+
+        &::before {
+            transform: rotate(-180deg) translateX(50%) translateY(-50%);
+        }
+
+        &::after {
+            transform: translateX(-50%) translateY(calc(100% + 6px));
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                bottom: -6px;
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-balloon-pos="left"] {
+
+        &::before,
+        &::after {
+            left: 0;
+            transition: 0.3s 0.1s;
+        }
+
+        &::before {
+            transform: rotate(-90deg) translateX(50%) translateY(-50%);
+        }
+
+        &::after {
+            transform: translateX(calc(-100% - 6px)) translateY(-50%);
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                left: -6px;
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-balloon-pos="right"] {
+
+        &::before,
+        &::after {
+            left: auto;
+            right: 0;
+            transition: 0.3s 0.1s;
+        }
+
+        &::before {
+            transform: rotate(90deg) translateX(-50%) translateY(-50%);
+        }
+
+        &::after {
+            transform: translateX(calc(100% + 6px)) translateY(-50%);
+        }
+
+        &:hover {
+
+            &::before,
+            &::after {
+                right: -6px;
+                opacity: 1;
+            }
+        }
+    }
+
+    &[data-balloon-length] {
+
+        &::after {
+            white-space: normal;
+        }
+
+        &[data-balloon-length="small"] {
+            &::after {
+                width: 80px;
+            }
+        }
+
+        &[data-balloon-length="medium"] {
+            &::after {
+                width: 150px;
+            }
+        }
+
+        &[data-balloon-length="large"] {
+            &::after {
+                width: 180px;
+            }
+        }
+
+        &[data-balloon-length="xlarge"] {
+            &::after {
+                width: 380px;
+            }
+        }
+
+        &[data-balloon-length="fit"] {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+}

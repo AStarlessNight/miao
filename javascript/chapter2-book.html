@@ -1,0 +1,159 @@
+<script type="xx" id="">
+    var n = 7
+    var charSeries = ""
+    for (var i = 0; i < n; i++) {
+        charSeries += "#"
+        console.log(charSeries)
+    }
+</script>
+<script type="xx" id="">
+    var n = 7
+    var charSeries = ""
+    for (var i = 0; i < n; i++) {
+        for (var j = 0; j < i + 1; j++){
+            charSeries += "#"
+        }
+        if (i != n-1){
+            charSeries += "\n"
+        }
+    }
+    console.log(charSeries)
+</script>
+
+
+
+
+
+<script type="xx" id="">
+    for (var i = 1; i <= 100; i++) {
+        if (i % 15 == 0) {
+            console.log("FizzBuzz")
+            continue;
+        } else if (i % 3 == 0){
+            console.log("Fizz")
+            continue;
+        } else if (i % 5 == 0) {
+            console.log("Buzz")
+            continue;
+        }
+        console.log(i)
+    }
+</script>
+
+
+
+
+
+<script type="xx" id="">
+    var size = 10
+    var rowType = ""
+    for (var i = 0; i < size; i++) {
+        if (i % 2 == 0) {
+            for (var j = 0; j < size; j++) {
+                if (j % 2 == 0) {
+                    rowType += " "
+                } else {
+                    rowType += "#"
+                }
+            }
+        } else {
+            for (var j = 0; j < size; j++) {
+                if (j % 2 != 0) {
+                    rowType += " "
+                } else {
+                    rowType += "#"
+                }
+            }
+        }
+        console.log(rowType)
+        rowType = ""
+    }
+</script>
+
+<script type="xx" id="">
+    var size = 10
+    var boardType = ""
+    var rowSubType1 = ""
+    var rowSubType2 = ""
+
+    for (var i = 0; i < size; i++) {
+        if (i == 0) {
+            for (var j = 0; j < size; j++) {
+                if (j % 2 == 0) {
+                    rowSubType1 += " "
+                    rowSubType2 += "#"
+                } else {
+                    rowSubType1 += "#"
+                    rowSubType2 += " "
+                }
+            }
+        }
+        if (i % 2 == 0) {
+            boardType += rowSubType1
+            if (i != size - 1) {
+                boardType += "\n"
+            }
+        } else {
+            boardType += rowSubType2
+            if (i != size - 1) {
+                boardType += "\n"
+            }
+        }
+    }
+    console.log(boardType)
+</script>
+
+
+
+
+<!-- 重要！！！ -->
+<script type="xx" id="">
+    var n = Number(prompt("请输入斐波那契数列的第n项(n>=1)"))
+    var a = 1, b = 1;
+    for (var i = 0;  i < n - 1; i++) {
+        b = a + b
+        a = b - a
+    }
+    console.log(a)
+</script>
+
+<!-- 重要！！！ -->
+<script type="xx" id="">
+    var a = Number(prompt("请输入第一个数"))
+    var b = Number(prompt("请输入第二个数"))
+    var tempt = 0
+    while (a != b) {
+        if (a < b) {
+            tempt = a
+            a = b
+            b = tempt
+        }
+        a = a - b
+        b = b
+    }
+    console.log("最大公约数为" + a)
+</script>
+<script xtype="xx" id="">
+    var xMax, xMin;
+    var a, b, c;
+    var tempt;
+    // 确定范围
+    xMax = Math.pow(7,3) - 1;
+    xMin = Math.pow(9,2);
+    for (var i = xMin; i <= xMax; i++) {
+        tempt = i.toString(7);
+        a = Number(tempt.charAt(0));
+        b = Number(tempt.charAt(1));
+        c = Number(tempt.charAt(2));
+        if (a * 7 * 7 + b * 7 + c == c * 9 * 9 + b * 9 + a){
+            console.log(i, "" + a + b + c, "" + c + b + a)
+            break
+        }
+    }
+</script>
+<script type="xx" id="">
+
+</script>
+<script type="xx" id="">
+
+</script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>JS Bin</title>
+    <style>
+        * {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* 方法1 内外层元素叠加旋转 */
+
+        @keyframes revolution {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(-1turn);
+            }
+        }
+
+        /* 方法2 直接对单个元素进行transform不同函数叠加 */
+
+        @keyframes combined {
+            from {
+                transform: rotate(0deg) translate(0px, -125px) rotate(-0deg);
+            }
+
+            to {
+                transform: rotate(1turn) translate(0px, -125px) rotate(-1turn);
+            }
+        }
+
+        /* 方法3 直接对外层元素水平和垂直方向分别做简谐运动  */
+
+        @keyframes sin {
+            from {
+                left: 0px;
+                margin: 0;
+                right: auto;
+            }
+
+            to {
+                left: 250px;
+                margin: 0;
+                right: auto;
+            }
+        }
+
+        @keyframes cos {
+            from {
+                top: 0px;
+                margin: 0;
+                bottom: auto;
+            }
+
+            to {
+                top: 250px;
+                margin: 0;
+                bottom: auto;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding-top: 100px;
+        }
+
+        div.container {
+            width: 300px;
+            margin: 0 auto;
+            height: 300px;
+            border-radius: 9999px;
+            position: relative;
+        }
+
+        div.container div {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            /* 方法1 外层元素与里层元素叠加旋转*/
+            /*   transform-origin: 50% 150px;
+  animation: revolution 10s 3s infinite linear; */
+
+            /* 方法2：或直接对div用combined（把div的中心移动到原来对准旋转的中心）*/
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            xtransform: translate(125px);
+            animation: combined 10s 3s infinite linear backwards;
+
+
+            /* 方法3 在垂直方向和水平方向上分别做简谐运动 animation-timing-function: sin(cos)*/
+            /*       animation: sin 5s infinite cubic-bezier(0.36,0,0.64,1) alternate, cos 5s -2.5s infinite cubic-bezier(0.36,0,0.64,1) alternate;
+      position: absolute;
+      left:0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto; */
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            /* 方法1 外层元素与里层元素叠加旋转*/
+            /* 或者直接用revolution+reverse */
+            /* animation: rotation 10s 3s infinite linear; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div><img
+                src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607340749673&di=2920a9e7dbecb1d558472f70ae719105&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F12%2F79%2F9656f6e8b6bbf1e.jpg"
+                alt=""></div>
+    </div>
+
+
+
+</body>
+
+</html>
