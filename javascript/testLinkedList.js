@@ -369,6 +369,7 @@ var mergeTwoLists = function (l1, l2) {
     }
     return list
 }
+
 var deleteNodes = function (node) {
     node.val = node.next.val
     node.next = node.next.next
