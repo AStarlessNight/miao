@@ -1,3 +1,7 @@
+"use strict";
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 // /**
 //  * @param {character[][]} board
 //  * @return {void} Do not return anything, modify board in-place instead.
@@ -5,7 +9,6 @@
 // var solveSudoku = function (board) {
 //   var isComplete = false;
 //   dfs(0, 0);
-
 //   function dfs(x, y) {
 //     if (isComplete) {
 //       return;
@@ -18,7 +21,6 @@
 //       isComplete = true;
 //       return;
 //     }
-
 //     if (board[x][y] !== '.') {
 //       if (y === 8) {
 //         dfs(x + 1, 0);
@@ -42,7 +44,6 @@
 //       }
 //     }
 //   }
-
 //   function findCandidate(x, y) {
 //     var set = new Set();
 //     var candidate = [];
@@ -81,9 +82,6 @@
 //     return candidate;
 //   }
 // };
-
-
-
 // /* var solveSudoku = function (board) {
 //   function getBannedNum(x, y) {
 //     let str = ""
@@ -102,7 +100,6 @@
 //     }
 //     return new Set(str)
 //   }
-
 //   let isSuccess = false
 //   function bt(x = 0, y = 0) {
 //     let nextx = x
@@ -127,7 +124,6 @@
 //         return
 //       }
 //     }
-      
 //     if (board[x][y] == ".") {
 //       let bannedPos = getBannedNum(x, y)
 //       for (let i = 1; i <= 9; i++) {
@@ -145,15 +141,8 @@
 //     }
 //   }
 //   bt(0, 0)
-
 // }; */
-
-
-
-
-
 // /* 
-
 // var solveSudoku = function (board) {
 //   function getCandidates(x, y) {
 //     let str = ""
@@ -179,7 +168,6 @@
 //     }
 //     return candidates
 //   }
-
 //   let isSuccess = false
 //   function bt(x = 0, y = 0) {
 //     let nextx = x
@@ -199,7 +187,6 @@
 //         return
 //       }
 //     }
-      
 //     if (board[x][y] == ".") {
 //       let candidates = getCandidates(x, y)
 //       for (let i in candidates) {
@@ -215,16 +202,11 @@
 //     }
 //   }
 //   bt(0, 0)
-
 // };
-
-
 // var board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
 // solveSudoku(board)
 // console.log(board) 
 //  */
-
-
 // /* var countVowelStrings = function(n) {
 //   let sum = 0
 //   let result = []
@@ -243,24 +225,18 @@
 //   bt()
 //   return result
 // };
-
 // console.log(countVowelStrings(2))
 //  */
-
-
 // /* var numTilePossibilities = function(tiles) {
 //   // naive, loop through each
 //   // memoize answers and check if they exist
-  
 //   const count = []
 //   const visited = {};
 //   const sortedTiles = tiles.split('').sort();
 //   let result = []
 //   backtrack(sortedTiles, 0, visited, count, "", result);
 //   return count.length;
-  
 // };
-
 // var backtrack = function(tiles, length, visited, count, history = "", result) {
 //   if (tiles.length === length) {
 //       result.push(history)
@@ -279,18 +255,11 @@
 //       visited[i] = false;
 //   }
 // }
-
 // console.log(numTilePossibilities("CDC"))
-
-
-
-
-
 // var getPermutation = function (n, k) {
 //   if (n == 1) {
 //       return 1
 //   }
-
 //   let nums = Array.from({length: n}, (v, i) => i+1);
 //   let length = n
 //   let factorialAry = new Array(n - 1)
@@ -299,7 +268,6 @@
 //   for (let i = 2; i < n; i++) {
 //       factorialAry[i - 1] = i * factorialAry[i - 2]
 //   }
-  
 //   let j = 1
 //   while(result.length != length) {
 //       let remainder = (k - 1) % factorialAry[n - j - 1]
@@ -311,47 +279,33 @@
 //   }
 //   return result
 // }
-
-
 // console.log(getPermutation(3, 1)) */
-
-
-
 // /* function forEach(ary, fun) {
 //   for (let i of ary) {
 //     fun(i)
 //   }
 //   return
 // }
-
 // var sum = 0
-
 // forEach([1,2,3,4], function asd(val) {
 //   sum += val
 // })
-
 // console.log(sum) */
-
 // /* repeat(5, function a(i) {
 //   unless(i % 2, function b() {
 //     console.log(i)
 //   })
 // })
-
-
 // function repeat(times, action) {
 //   for (var i = 0; i < times; i++)  {
 //     action(i)
 //   }
 // }
-
-
 // function unless(cond, action) {
 //   if (!cond) {
 //     action()
 //   }
 // } */
-
 // /* function filter (ary, fun) {
 //   let result = []
 //   for (let i of ary) {
@@ -361,24 +315,16 @@
 //   }
 //   return result
 // }
-
 // console.log(filter([1,2,3,4],function(it){
 //   return it > 2
 // }))
-
 // var  a = [1,2,3,4]
 // console.log(a.filter(function(it){
 //   return it > 2
 // }))
-
 // console.log(a)
 //  */
-
-
 // /* let count = 0
-
-
-
 // Array.prototype._forEach =function(fun){
 //   for (let i in this) {
 //     count++
@@ -386,19 +332,13 @@
 //   }
 //   return
 // }
-
 // let sum = 0
 // var a = [1,2,3,4]
 // a._forEach(function (it){
 //   sum += it
 // })
-
 // console.log(sum)
 //  */
-
-
-
-
 // // Array.prototype._map = function(fun) {
 // //   let result = []
 // //   this.forEach(function(it,idx, ary) {
@@ -408,8 +348,6 @@
 // // }
 // // var a = [1,2,3,4]
 // // console.log(a._map((it,idx) => idx * 2))
-
-
 // // function reduce(ary, ini, fun) {
 // //   ary.forEach(function(item,idx) {
 // //     ini = fun(ini, item, idx)
@@ -419,8 +357,6 @@
 // //   } */ 
 // //   return ini
 // // }
-
-
 // // console.log(reduce([1,2,3,4],1,(a,b,idx) => {
 // //   if (idx < 2) {
 // //     return a + b
@@ -434,40 +370,30 @@
 //   prev[curr] = true
 //   return prev
 // }, obj)
-
 // console.log(obj) */
-
 // // a.forEach(function (name) {
 // //   obj[name] = true
 // // })
-
 // // console.log(obj)
-
-
 // /* var array = [
 //   {"dir": "left", "code":97},
 //   {"dir": "right", "code":100}
 // ] 
-
 // function keyBy(ary, by) {
 //   let f = by
 //   if (typeof by === "string") {
 //     f = it => it[by]
 //   }
-
 //   return ary.reduce((result, item) => {
 //     let key = f(item)
 //     result[key] = item
 //     return result
 //   }, {})
 // }
-
 // console.log(keyBy(array, function(o) {
 //   return String.fromCharCode(o.code)
 // }))
 // console.log(keyBy(array, "dir"))
-
-
 // function groupBy(ary, by) {
 //   let f = by
 //   if (typeof by === "string") {
@@ -482,13 +408,8 @@
 //     return result
 //   }, {})
 // }
-
 // console.log(groupBy(['one', 'two', 'three'], 'length'))
 // console.log(groupBy([6.1, 4.2, 6.3], Math.floor)) */
-
-
-
-
 // /* var getHappyString = function(n, k) {
 //   if (k > 3 * 2 ** (n - 1)) {
 //       return ""
@@ -499,7 +420,6 @@
 //   for (let i = 1; i < dict.length; i++) {
 //       dict[i] = dict[i - 1] * 2
 //   }
-  
 //   let result = ""
 //   let temp = n
 //   let left = set
@@ -512,19 +432,14 @@
 //   }
 //   console.log(result)
 //   return result
-  
 // }(5,3); */
-
-
 // // function reduce(ary, fun, ini) {
 // //   ary.forEach((val, idx, ary) => {
 // //     ini = fun(ini, val, idx, ary)
 // //   })
 // //   return ini
 // // }
-
 // // console.log(reduce([1,2,3,4], (ini, val, idx, ary) => Math.max(ini, val), 5))
-
 // /* 
 // function bind(f, ...args) {
 //   return function(...left) {
@@ -538,7 +453,6 @@
 // //     return prev
 // //   }, [])
 // // }
-
 // /* function map (ary, transform) {
 //   return ary.reduce(((prev, curr, idx, ary) => (prev.push(transform(curr,idx,ary)), prev)), [])
 // }
@@ -553,30 +467,19 @@
 //     _ = action(item, idx, ary)
 //   }, null)
 // }
-
-
-
 // let obj = {}
 // forEach([1,2,3,4], function(it, idx) {
 //   obj[idx] = it
 // })
-
 // console.log(obj)
-
-
 // console.log(map([1,2,3,4], (it, idx) => idx ** 2))
 // console.log(filter([1,2,3,4], (it, idx) => idx > 2))
-
-
 // function foo(a,b,c,d) {
 //   return a+b+c+d
 // }
-
 // var boo = foo.bind(null,1,2)
 // boo(3,4)
 //  */
-
-
 // function every(obj, test) {
 //   for (let i in obj) {
 //     if (!test(obj[i])) {
@@ -585,14 +488,12 @@
 //   }
 //   return true
 // }
-
 // function some(obj, test) {
 //   function testPie(...args) {
 //     return !test(...args)
 //   }
 //   return !every(obj, testPie)
 // }
-
 // /* function some(obj, test) {
 //   for (let i in obj) {
 //     if(test(obj[i])) {
@@ -601,7 +502,6 @@
 //   }
 //   return false
 // }
-
 // function every(obj, test) {
 //   function testPie(...args) {
 //     return !test(...args)
@@ -611,26 +511,19 @@
 //  */
 // console.log(every([true, 1, null, 'yes'], Boolean))
 // console.log(some([true, 1, null, 'yes'], Boolean))
-
 // // => false
-
 // /* var users = [
 //   { 'user': 'barney', 'age': 36, 'active': false },
 //   { 'user': 'fred',   'age': 40, 'active': false }
 // ];
- 
 // // The `_.matches` iteratee shorthand.
 // every(users, { 'user': 'barney', 'active': false });
 // // => false
- 
 // // The `_.matchesProperty` iteratee shorthand.
 // every(users, ['active', false]);
 // // => true
- 
 // // The `_.property` iteratee shorthand.
 // every(users, 'active'); */
-
-
 // function before(n, func) {
 //   let result
 //   return function (...args) {
@@ -641,9 +534,6 @@
 //     return result
 //   }
 // }
-
-
-
 // function after(n, func) {
 //   let i = 1
 //   return function (...args) {
@@ -654,46 +544,35 @@
 //     return func(...args)
 //   }
 // }
-
 // function ary(func, n = func.length) {
 //   return function () {
 //     let args = Array.from(arguments)
 //     return func(...args.slice(0, n))
 //   }
 // }
-
-
 // function unary(func) {
 //   return function () {
 //     return func(arguments[0])
 //   }
 // }
-
-
 // function flip(func) {
 //   return function (...args) {
 //     return func(...args.reverse())
 //   }
 // }
-
 // var parseInt2 = flip(parseInt)
 // var parseInt3 = parseInt2.bind(null, 16)
 // var parseInt4 = ary(parseInt3, 1)
 // console.log(["1", "2", "a"].map(parseInt4))
-
-
 // function negate(predicate) {
 //   return function (...args) {
 //     return !predicate(...args)
 //   }
 // }
-
 // function isEven(n) {
 //   return n % 2 == 0;
 // }
-
 // console.log([1, 2, 3, 4, 5, 6].filter(negate(isEven)));
-
 // /* function once(func) {
 //   let n = 1
 //   let result
@@ -706,40 +585,29 @@
 //   }
 // } */
 // var starlessnight = {};
-
 // var on = once((a, b) => a + b)
 // console.log(on(3, 4))
 // console.log(on(4, 5))
 // console.log(on(6, 7))
-
-
 // function once(func) {
 //   return before(2, func)
 // }
-
 // function spread(func, start = 0) {
 //   return function (ary) {
 //     return func.apply(null, ary)
 //   }
 // }
-
-
 // var say = spread(function(who, what) {
 //   return who + ' says ' + what;
 // });
-
 // function greet(greeting, punctuation) {
 //   return greeting + " " + this.user + punctuation
 // }
-
 // function add(a,b,c,d) {
 //   return a + b + c + d
 // }
-
 // var add2 = bind(add, null, null, 1, null, 1, 2)
 // console.log(add2(3,4,5))
-
-
 // function bind(func, thisArg, ...fixedArgs) {
 //   return function (...args) {
 //     let count = 0
@@ -755,61 +623,65 @@
 //     return func.apply(thisArg, copy)
 //   }
 // }      
-
 // var object = {"user": "fred"}
 // var bound = bind(greet, object, null, "!");
 // console.log(bound("hi"))
-
-
-
-
-
-
 function filter(ary, predicate) {
-  let temp = predicate
+  var temp = predicate;
+
   if (typeof predicate === "string") {
-    predicate = item => item[temp]
-  } else if(Array.isArray(predicate)) {
-    predicate = item => item[temp[0]] == temp[1]
-  } else if (typeof predicate === "object") {
-    predicate = item => {
-      for(let i in temp) {
+    predicate = function predicate(item) {
+      return item[temp];
+    };
+  } else if (Array.isArray(predicate)) {
+    predicate = function predicate(item) {
+      return item[temp[0]] == temp[1];
+    };
+  } else if (_typeof(predicate) === "object") {
+    predicate = function predicate(item) {
+      for (var i in temp) {
         if (temp[i] !== item[i]) {
-          return false
+          return false;
         }
       }
-      return true
-    }
+
+      return true;
+    };
   }
-  return ary.filter(predicate)
+
+  return ary.filter(predicate);
 }
 
-var users = [
-  { 'user': 'barney', 'age': 36, 'active': true },
-  { 'user': 'fred',   'age': 40, 'active': false }
-];
- 
-console.log(filter(users, function(o) { return !o.active; }))
-// => objects for ['fred']
- 
+var users = [{
+  'user': 'barney',
+  'age': 36,
+  'active': true
+}, {
+  'user': 'fred',
+  'age': 40,
+  'active': false
+}];
+console.log(filter(users, function (o) {
+  return !o.active;
+})); // => objects for ['fred']
 // The `matches` iteratee shorthand.
-console.log(filter(users, { 'age': 36, 'active': true }))
-// => objects for ['barney']
- 
-// The `matchesProperty` iteratee shorthand.
-console.log(filter(users, ['active', false]))
-// => objects for ['fred']
- 
-// The `property` iteratee shorthand.
-console.log(filter(users, 'active'))
-// => objects for ['barney']
 
+console.log(filter(users, {
+  'age': 36,
+  'active': true
+})); // => objects for ['barney']
+// The `matchesProperty` iteratee shorthand.
+
+console.log(filter(users, ['active', false])); // => objects for ['fred']
+// The `property` iteratee shorthand.
+
+console.log(filter(users, 'active')); // => objects for ['barney']
 
 function fromPairs(ary) {
-  return ary.reduce((prev, item, idx, ary) => {
-    prev[item[0]] = item[1]
-    return prev
-  },{})
+  return ary.reduce(function (prev, item, idx, ary) {
+    prev[item[0]] = item[1];
+    return prev;
+  }, {});
 }
 
 console.log(fromPairs([['a', 1], ['b', 2], ["c", 3]]));
