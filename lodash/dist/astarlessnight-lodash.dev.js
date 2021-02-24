@@ -339,6 +339,35 @@ var astarlessnight = function () {
     return ary.filter(predicate);
   }
 
+  function curry(func) {
+    var arity = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : func.length;
+
+    if (arity == 0) {
+      return func();
+    }
+
+    return function () {
+      var temp = arity;
+      var i = 0;
+
+      for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
+      }
+
+      while (temp != 0) {
+        if (args[i++] != null) {
+          temp--;
+        }
+
+        if (i == args.length) {
+          break;
+        }
+      }
+
+      return curry(bind.apply(void 0, [func, null].concat(args)), temp);
+    };
+  }
+
   return {
     chunk: chunk,
     keyBy: keyBy,
@@ -358,6 +387,7 @@ var astarlessnight = function () {
     fromPairs: fromPairs,
     property: property,
     matches: matches,
-    matchesProperty: matchesProperty
+    matchesProperty: matchesProperty,
+    curry: curry
   };
 }();

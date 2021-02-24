@@ -276,6 +276,36 @@ var astarlessnight = function () {
         return ary.filter(predicate)
     }
 
+    function curry(func, arity = func.length) {
+        if (arity == 0) {
+          return func()
+        }
+        return function(...args) {
+          let temp = arity
+          let i = 0
+          while(temp != 0) {
+            if (args[i++] != null) {
+              temp--
+            }
+            if (i == args.length) {
+              break
+            }
+          }
+          return curry(bind(func,null,...args), temp)
+        }
+      }
+
+
+      function forOwn(obj, action) {
+        for (let key in obj) {
+            if(Object.prototype.hasOwnProperty.call(obj, key)) {
+                action(obj[key], key, obj)
+            }
+        }
+        return obj
+    }
+    
+
     return {
         chunk,
         keyBy,
@@ -296,6 +326,8 @@ var astarlessnight = function () {
         property,
         matches,
         matchesProperty,
+        curry,
+        forOwn,
     }
 }()
 

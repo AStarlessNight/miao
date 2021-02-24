@@ -1,3 +1,5 @@
+"use strict";
+
 /* var JOURNAL = [
     { "events": ["carrot", "exercise", "weekend"], "squirrel": false },
     { "events": ["bread", "pudding", "brushed teeth", "weekend", "touched tree"], "squirrel": false },
@@ -150,11 +152,8 @@ var getAllEventsCorrelation = function (journal) {
 
 
  */
-
-
-
-
 // 掷奇怪的骰子
+
 /* function r(){
     if (Math.random() < 0.3) {
         return 0
@@ -183,9 +182,6 @@ for (let i = 0; i < 10000; i++) {
 
 console.log(onetimes,onetimes / 100) */
 
-
-
-
 /* function arrayToList(nums) {
     let obj = {}
     let list = obj
@@ -200,8 +196,6 @@ console.log(onetimes,onetimes / 100) */
     }
     return obj
 } */
-
-
 
 /* function arrayToList(nums) {
     let obj = {}
@@ -219,9 +213,6 @@ console.log(onetimes,onetimes / 100) */
 var a = arrayToList([1,2,3,4])
  */
 
-
-
-
 /* function arrayToList(nums) {
     function returnList(ary) {
         if (ary.length == 0) {
@@ -238,18 +229,16 @@ var a = arrayToList([1,2,3,4])
     return returnList(nums)
 }
 var a = arrayToList([1,2,4]) */
-
 var head = {
-    val: 1,
+  val: 1,
+  next: {
+    val: 2,
     next: {
-        val: 2,
-        next: {
-            val: 3,
-            next: null
-        }
+      val: 3,
+      next: null
     }
-}
-
+  }
+};
 /* var listToArray = function(head) {
     let stack = []
     let prev = head
@@ -260,7 +249,6 @@ var head = {
     console.log(stack)
     return stack
 }(head) */
-
 
 /* var listToArray = function(head) {
     let stack = []
@@ -277,8 +265,6 @@ var head = {
 
 
 var a = listToArray(head) */
-
-
 
 /* function append(val,head) {
     while(head.next) {
@@ -316,90 +302,84 @@ function nth2(head,idx) {
 console.log(nth2(head,-1)) */
 
 function ListNode(val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
-
-
 
 function arrayToList(nums) {
-    function returnList(ary) {
-        if (ary.length == 0) {
-            return null
-        }
-        let head = {
-            val: ary[0],
-            next: returnList(ary.slice(1)),
-        }
-
-        return head
+  function returnList(ary) {
+    if (ary.length == 0) {
+      return null;
     }
 
-    return returnList(nums)
-}
-var a = arrayToList([1])
-var b = arrayToList([1, 3, 4])
+    var head = {
+      val: ary[0],
+      next: returnList(ary.slice(1))
+    };
+    return head;
+  }
 
-
-
-var mergeTwoLists = function (l1, l2) {
-    let stack = []
-
-    while (l1) {
-        stack.push(l1.val)
-        l1 = l1.next
-    }
-
-    while (l2) {
-        stack.push(l2.val)
-        l2 = l2.next
-    }
-
-    stack.sort(function (a, b) { return a - b })
-    let list = new ListNode(stack[0])
-    let dummy = list
-
-    for (let i = 1; i < stack.length; i++) {
-        let node = {
-            val: stack[i],
-            next: null
-        }
-        dummy.next = node
-        dummy = node
-    }
-    return list
+  return returnList(nums);
 }
 
-var deleteNodes = function (node) {
-    node.val = node.next.val
-    node.next = node.next.next
-}
+var a = arrayToList([1]);
+var b = arrayToList([1, 3, 4]);
 
+var mergeTwoLists = function mergeTwoLists(l1, l2) {
+  var stack = [];
 
+  while (l1) {
+    stack.push(l1.val);
+    l1 = l1.next;
+  }
+
+  while (l2) {
+    stack.push(l2.val);
+    l2 = l2.next;
+  }
+
+  stack.sort(function (a, b) {
+    return a - b;
+  });
+  var list = new ListNode(stack[0]);
+  var dummy = list;
+
+  for (var i = 1; i < stack.length; i++) {
+    var node = {
+      val: stack[i],
+      next: null
+    };
+    dummy.next = node;
+    dummy = node;
+  }
+
+  return list;
+};
+
+var deleteNodes = function deleteNodes(node) {
+  node.val = node.next.val;
+  node.next = node.next.next;
+};
 
 var deleteDuplicates = function (head) {
+  if (head === null) {
+    return null;
+  }
 
+  var dummy = head;
 
-    if (head === null) {
-        return null
+  while (dummy.next) {
+    if (dummy.val == dummy.next.val) {
+      deleteNodes(dummy);
+      continue;
     }
-    let dummy = head
 
-    while (dummy.next) {
-        if (dummy.val == dummy.next.val) {
+    dummy = dummy.next;
+  }
 
-            deleteNodes(dummy)
-            continue
-
-        } 
-        dummy = dummy.next
-
-    }
-    console.log(head)
-    return head
+  console.log(head);
+  return head;
 }(a);
-
-
 /* var removeElements = function(head, val) {
     let dummy = head
     let prev = new ListNode()
@@ -421,189 +401,192 @@ var deleteDuplicates = function (head) {
 }(a,2); */
 
 
+var swapPairs = function (head) {
+  var prev = new ListNode();
+  var dummy = prev;
 
-var swapPairs = function(head) {
-    let prev = new ListNode()
-    let dummy = prev
-    function exchangeNodes(list) {
-        if(!list) {
-            return
-        } else if (!list.next) {
-            dummy.next = list
-            return
-        }
+  function exchangeNodes(list) {
+    if (!list) {
+      return;
+    } else if (!list.next) {
+      dummy.next = list;
+      return;
+    }
 
-        dummy.next = {
-            val: list.next.val,
-            next: {
-                val: list.val,
-                next: null
-            }
-        }
-        
-        dummy = dummy.next.next
-        if (list.next.next) {
-            list = list.next.next
-            exchangeNodes(list)
-        }
+    dummy.next = {
+      val: list.next.val,
+      next: {
+        val: list.val,
+        next: null
+      }
+    };
+    dummy = dummy.next.next;
+
+    if (list.next.next) {
+      list = list.next.next;
+      exchangeNodes(list);
     }
-    
-    exchangeNodes(head)
-    
-    
-    if(!prev.next) {
-        return null
-    } else{
-        prev.val = prev.next.val
-        prev.next = prev.next.next
-    }
-    console.log(prev)
-    return prev
+  }
+
+  exchangeNodes(head);
+
+  if (!prev.next) {
+    return null;
+  } else {
+    prev.val = prev.next.val;
+    prev.next = prev.next.next;
+  }
+
+  console.log(prev);
+  return prev;
 }(a);
 
+var a = arrayToList([1, 2, 3, 4, 5]);
 
-var a = arrayToList([1,2,3,4,5])
+var oddEvenList = function (head) {
+  var evenNodes = new ListNode();
+  var evenDummy = evenNodes;
+  var oddNodes = new ListNode();
+  var oddDummy = oddNodes;
+  var num = 1;
 
+  while (head) {
+    var headDummy = head;
+    head = head.next;
 
-var oddEvenList = function(head) {
-    let evenNodes = new ListNode()
-    let evenDummy = evenNodes
-    let oddNodes = new ListNode()
-    let oddDummy = oddNodes
-    let num = 1
-    while(head) {
-        let headDummy = head
-        head = head.next
-        if(num % 2) {
-            oddDummy.next = headDummy
-            oddDummy = oddDummy.next
-        } else {
-            evenDummy.next = headDummy
-            evenDummy = evenDummy.next
-        }
-        num++
-    }
-    
     if (num % 2) {
-        evenDummy.next = null
+      oddDummy.next = headDummy;
+      oddDummy = oddDummy.next;
     } else {
-        oddDummy.next = null
+      evenDummy.next = headDummy;
+      evenDummy = evenDummy.next;
     }
-    
-    oddDummy.next = evenNodes.next
-    return oddNodes.next
-    
-    
+
+    num++;
+  }
+
+  if (num % 2) {
+    evenDummy.next = null;
+  } else {
+    oddDummy.next = null;
+  }
+
+  oddDummy.next = evenNodes.next;
+  return oddNodes.next;
 }(a);
 
-var numComponents = function(head, G) {
-    let conNum = 0
-    let conFlag = false
-    let dummy = head
-    
-    while(dummy) {
-        if(G.includes(dummy.val)) {
-            if(!conFlag) {
-                conNum++
-            }
-        } else {
-            conFlag = false
-        }
-        dummy = dummy.next
-    }
-    
-    return conNum
-}(a,[0,1,3]);
+var numComponents = function (head, G) {
+  var conNum = 0;
+  var conFlag = false;
+  var dummy = head;
 
-var rotateRight = function(head, k) {
-    if (!head || !head.next || !k) {
-        return head
-    }
-    let slow = head
-    let fast = head
-    let length = 0
-    let stepNum = k
-    
-    while(stepNum && fast){
-        fast = fast.next
-        stepNum--
-        length++
-    }
-    
-    if(!fast) {
-        stepNum = k % length
-        fast = head
-    }
-    
-    if (stepNum) {
-        while(stepNum--) {
-            fast = fast.next
-        }
-        while(fast.next) {
-            fast = fast.next
-            slow = slow.next
-        }
-        let newhead = slow.next
-        slow.next = null
-        fast.next = head
-        return newhead        
+  while (dummy) {
+    if (G.includes(dummy.val)) {
+      if (!conFlag) {
+        conNum++;
+      }
     } else {
-        return head
+      conFlag = false;
     }
-}(a,2);
 
+    dummy = dummy.next;
+  }
 
-var getDecimalValue = function(head) {
-    let stack = []
-    while(head) {
-        stack.push(head.val)
-        head = head.next
+  return conNum;
+}(a, [0, 1, 3]);
+
+var rotateRight = function (head, k) {
+  if (!head || !head.next || !k) {
+    return head;
+  }
+
+  var slow = head;
+  var fast = head;
+  var length = 0;
+  var stepNum = k;
+
+  while (stepNum && fast) {
+    fast = fast.next;
+    stepNum--;
+    length++;
+  }
+
+  if (!fast) {
+    stepNum = k % length;
+    fast = head;
+  }
+
+  if (stepNum) {
+    while (stepNum--) {
+      fast = fast.next;
     }
-    let sum = 0
-    let count = 0
-    while(stack.length >= 1) {
-        let digit = stack.pop()
-        if (digit) {
-            sum += Math.pow(2, count)
-        }
-        count++
+
+    while (fast.next) {
+      fast = fast.next;
+      slow = slow.next;
     }
-    return sum
-} (a);
 
+    var newhead = slow.next;
+    slow.next = null;
+    fast.next = head;
+    return newhead;
+  } else {
+    return head;
+  }
+}(a, 2);
 
+var getDecimalValue = function (head) {
+  var stack = [];
 
-var reverseList = function(head) {
-    if(!head || !head.next) {
-        return head 
+  while (head) {
+    stack.push(head.val);
+    head = head.next;
+  }
+
+  var sum = 0;
+  var count = 0;
+
+  while (stack.length >= 1) {
+    var digit = stack.pop();
+
+    if (digit) {
+      sum += Math.pow(2, count);
     }
-    let tail = head.next
-    head.next = null
-    var newhead = reverseList(tail)
-    tail.next = head
-    return newhead
-    
-}
 
+    count++;
+  }
 
+  return sum;
+}(a);
 
+var reverseList = function reverseList(head) {
+  if (!head || !head.next) {
+    return head;
+  }
 
-var qsort = function(nums) {
-    let pivot = nums[0]
-    let i = 0
-    let j = nums.length - 1
-    while(i < j) {
-        if(nums[i] >= pivot) {
-            if(nums[j] <= pivot) {
-                let tempt =nums[i]
-                nums[i] = nums[j]
-                nums[j] = temp
-            } else {
-                j--
-            }
-        } else {
-            i++
-        }
+  var tail = head.next;
+  head.next = null;
+  var newhead = reverseList(tail);
+  tail.next = head;
+  return newhead;
+};
+
+var qsort = function qsort(nums) {
+  var pivot = nums[0];
+  var i = 0;
+  var j = nums.length - 1;
+
+  while (i < j) {
+    if (nums[i] >= pivot) {
+      if (nums[j] <= pivot) {
+        var tempt = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+      } else {
+        j--;
+      }
+    } else {
+      i++;
     }
-}
-
+  }
+};
