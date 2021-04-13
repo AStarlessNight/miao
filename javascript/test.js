@@ -950,15 +950,15 @@
 
 
 
- function createTreeNode(val) {
-  if (val === null) {
-      return null
-  }
-  return {
-    val: val,
-    left: null,
-    right: null
-  }
+function createTreeNode(val) {
+    if (val === null) {
+        return null
+    }
+    return {
+        val: val,
+        left: null,
+        right: null
+    }
 }
 
 // function ary2tree(ary) {
@@ -1069,11 +1069,74 @@ function inOrderTraversal(root, action) {
 }
 
 
+
+//迭代写法
+function preOrderTraversal2nd(root) {
+    let stack = []
+    let result = []
+
+    while (root || stack.length) {
+        if(!root) {
+            root = stack.pop().right
+            continue
+        }
+        result.push(root.val)
+        stack.push(root)
+        root = root.left
+    }
+    return result
+}
+
+function inOrderTraversal2nd(root) {
+    let stack = []
+    let result = [] 
+    while(root || stack.length) {
+        if(!root) {
+            let node = stack.pop()
+            result.push(node.val)
+            root = node.right
+            continue
+        }
+        stack.push(root)
+        root = root.left
+    }
+    return result
+}
+
+//未完成
+// function postOrderTraversal2nd(root) {
+//     let stack = []
+//     let result = []
+//     let isLeftChild = false
+
+//     while(root || stack.length) {
+//         if (!root) {
+//             if (isLeftChild) {
+//                 root = stack[stack.length - 1].right
+//                 isLeftChild = false
+//             } else {
+
+//                 result.push(root.val)
+//             }
+//             continue
+            
+//         }
+//         stack.push(root)
+//         root = root.left
+//     }
+// }
+
+
 /* var b = ary2tree([1, 2, 3, 4, 5, 6, 7])
 preOrderTraversal(b)
 postOrderTraversal(b)
 inOrderTraversal(b)
 console.log(preOrderArray,postOrderArray,inOrderArray) */
+
+var b = ary2tree([1, 2, 3, 4, 5, 6, 7])
+console.log(preOrderTraversal2nd(b))
+console.log(inOrderTraversal2nd(b))
+// console.log(postOrderTraversal2nd(b))
 
 
 
@@ -1110,18 +1173,18 @@ function preOrderIterative(root) {
 function preOrderIterative2nd(root) {
     let stack = []
     let result = []
-/*     while(true) {
-        while(root) {
-            stack.push(root)
-            result.push(root.val)
-            root = root.left
-        }
-        if(!stack.length){
-            break
-        }
-        root = stack.pop().right
-    } */
-    while(root || stack.length) {
+    /*     while(true) {
+            while(root) {
+                stack.push(root)
+                result.push(root.val)
+                root = root.left
+            }
+            if(!stack.length){
+                break
+            }
+            root = stack.pop().right
+        } */
+    while (root || stack.length) {
         if (!root) {
             root = stack.pop().right
             continue
@@ -1133,13 +1196,23 @@ function preOrderIterative2nd(root) {
     return result
 }
 
+
+
+
+
+
+
+
+
+
+
 function findPrecursorNode(root) {
     let temp = root
     if (root.left === null) {
         return null
     }
     root = root.left
-    while(root.right && root.right != temp) {
+    while (root.right && root.right != temp) {
         root = root.right
     }
     return root
@@ -1147,7 +1220,7 @@ function findPrecursorNode(root) {
 
 function preOrderIterative3rd(root) {
     let result = []
-    while(root) {
+    while (root) {
         let node = findPrecursorNode(root)
         if (node === null) {
             result.push(root.val)
@@ -1166,7 +1239,7 @@ function preOrderIterative3rd(root) {
 
 function inOrderIterative3rd(root) {
     let result = []
-    while(root) {
+    while (root) {
         let node = findPrecursorNode(root)
         if (node === null) {
             result.push(root.val)
@@ -1190,7 +1263,7 @@ function insertIntoBST(bst, val) {
     }
     let curr = bst
     let prev
-    while(curr){
+    while (curr) {
         prev = curr
         curr = val <= curr.val ? curr.left : curr.right
     }
@@ -1202,14 +1275,14 @@ function insertIntoBST(bst, val) {
 //时间复杂度：O(n(ln(n)))最优，当树是比较平衡的
 //空间复杂度 O(n)构造出来的BST占用的空间
 function binarySearchTreeSort(ary) {
-    if(!ary.length) {
+    if (!ary.length) {
         return null
     }
     let root = createTreeNode(ary[0])
-    for (let i = 1; i < ary.length; i++) {  
+    for (let i = 1; i < ary.length; i++) {
         let curr = root
         let prev
-        while(curr){
+        while (curr) {
             prev = curr
             curr = ary[i] <= curr.val ? curr.left : curr.right
         }
@@ -1229,11 +1302,11 @@ function insertIntoBST2nd(bst, val) {
     return bst
 }
 
-function binarySearchTreeSort2nd(ary) { 
+function binarySearchTreeSort2nd(ary) {
     let root = null
-    root = ary.reduce(((bst,item) => insertIntoBST(bst, item)), root)
+    root = ary.reduce(((bst, item) => insertIntoBST(bst, item)), root)
     let result = []
-    inOrderTraversal(root,(val) => {
+    inOrderTraversal(root, (val) => {
         result.push(val)
     })
     return result
@@ -1258,63 +1331,63 @@ console.log(binarySearchTreeSort2nd([2,1,4,7,5,8,3,6,9,0])) */
 
 
 
-var levelOrder = function(root) {
+var levelOrder = function (root) {
     let stack = [root]
     let result = []
     let start = 0
     let end = stack.length - 1
-    
-    while(true) {
-        if(end < start) {
+
+    while (true) {
+        if (end < start) {
             break
         }
         let currAry = []
         for (let i = start; i <= end; i++) {
-            if(!stack[i]) {
+            if (!stack[i]) {
                 continue
             }
             stack.push(stack[i].left)
             stack.push(stack[i].right)
-            currAry.push(stack[i].val)            
+            currAry.push(stack[i].val)
         }
         start = end + 1
         end = end + currAry.length * 2
-        if(currAry.length) {
+        if (currAry.length) {
             result.push(currAry)
         }
-    } 
+    }
     return result
-}(ary2tree([3,9,20,null,null,15,7]));
+}(ary2tree([3, 9, 20, null, null, 15, 7]));
 
 
-var invertTree = function(root) {
+var invertTree = function (root) {
     let curRow = [root]
-    while(true) {
+    while (true) {
         let nextRow = []
-        for(let i = curRow.length - 1; i >= 0; i--) {
+        for (let i = curRow.length - 1; i >= 0; i--) {
             let node = curRow[i]
-            if(!node) {
+            if (!node) {
                 continue
             }
             nextRow.push(node.right)
             nextRow.push(node.left)
         }
-        if(!nextRow.length) {
+        if (!nextRow.length) {
             break
         }
         let dummy = [...nextRow]
-        for(let node of curRow) {
+        for (let node of curRow) {
             node.left = dummy.shift()
             node.right = dummy.shift()
         }
         curRow = nextRow
     }
     return root
-}(ary2tree([4,2,7,1,3,6,9]));
+}(ary2tree([4, 2, 7, 1, 3, 6, 9]));
 
 
 
-var deleteNode = function(root, key) {
+var deleteNode = function (root, key) {
     if (!root) {
         return root
     }
@@ -1332,10 +1405,28 @@ var deleteNode = function(root, key) {
         root.val = nextNode.val
         root.left = nextNode.left
         root.right = nextNode.right
-        while(dummy.right) {
+        while (dummy.right) {
             dummy = dummy.right
         }
         dummy.right = temp
     }
     return root
-}(ary2tree([5,3,6,2,4,null,7]),5)
+}(ary2tree([5, 3, 6, 2, 4, null, 7]), 5)
+
+
+
+function INSTANCEOF(obj, Cont) {
+    while(obj) {
+        if (!obj.__proto__) {
+            return false
+        }
+        if (obj.__proto__ === Cont.prototype) {
+            return true
+        }
+        obj = obj.__proto__
+    }
+
+    return false
+
+
+}
