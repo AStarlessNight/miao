@@ -69,6 +69,32 @@ try {
 console.log(box.locked, box._content)
 
 
+class Creature {
+
+    constructor(type, name, age) {
+        this.type = type
+        this.name = name
+        this.age = age
+    }
+    aslkdjas() {
+
+    }
+
+}
+
+Creature.ooo = 3
+
+class Person extends Creature {
+    constructor(name, age) {
+        super()
+    }
+    test() {
+    }
+}
+
+var zhangsan = new Person("zhangs", 15)
+
+console.log(Person)
 
 
 
