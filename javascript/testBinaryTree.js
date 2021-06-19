@@ -247,3 +247,57 @@ var isSymmetric2 = function (root) {
 
 console.log(isSymmetric(ary2tree([1,2,2,3,null,null,3])))
 
+
+var findTilt = function(root) {
+    function sumOfTree(root) {
+        if (root === null) {
+            return 0
+        }
+        let leftSum = sumOfTree(root.left)
+        let rightSum = sumOfTree(root.right)
+        allTilt += Math.abs(leftSum, rightSum)
+        return leftSum + rightSum + root.val
+    }
+    let allTilt = 0
+    sumOfTree(root)
+    return allTilt
+};
+
+
+var countNodes = function (root) {
+    if (root === null) {
+        return 0
+    }
+    let leftDepth = countLevels(root.left) + 1
+    let maxDepth = leftDepth
+    let nodesSum = (1 << maxDepth) - 1
+    let rightDepth = countLevels(root.right) + 1
+    let curDepth = 1
+    while (true) {
+        if (leftDepth === rightDepth) {
+            root = root.right
+            curDepth++
+        } else {
+            root = root.left
+            curDepth++
+            nodesSum -= 1 << (maxDepth - curDepth)
+        }
+        if (root === null) {
+            break
+        }
+        leftDepth = countLevels(root.left)
+        rightDepth = countLevels(root.right)
+    }
+    return nodesSum
+};
+
+var countLevels = function (root) {
+    let count = 0
+    while (root) {
+        root = root.left
+        count++
+    }
+    return count
+}
+
+console.log(countNodes(ary2tree(Array(50000).fill(0).map(()=>Math.random() * 100| 0))))
